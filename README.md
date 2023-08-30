@@ -17,3 +17,4 @@ In this subdirectory we present all the functions to simulate the regression dat
   * sparse_NAM_regression: script with the function to fit the sparse NAM model, doing the CV and obtaining the optimal hyperparameters for the corresponding datasets from all sample sizes.
   * NAM_regression: script to fit the NAM model for all the scenarios from the different sample sizes.
   * simulations_reg_R: R script to fit the lasso, gamsel and relgam models to the simulated regression datasets.
+  * subplot_reg: script to plot the results of the regression simulation study. It will create for each sample size two plots (one for the wrong structure proportion and the other one for the MSE).
