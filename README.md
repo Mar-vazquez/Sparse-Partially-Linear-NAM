@@ -18,6 +18,7 @@ In this subdirectory we present all the functions to simulate the regression dat
   * NAM_regression: script to fit the NAM model for all the scenarios from the different sample sizes.
   * simulations_reg_R: R script to fit the Lasso, Gamsel and Relgam models to the simulated regression datasets.
   * subplot_reg: script to plot the results of the regression simulation study. It will create for each sample size two plots (one for the wrong structure proportion and the other one for the MSE).
+  * plot_feat_regression: script to plot the shape function of each one of the explanatory features in some simulated regression datasets.
 
 
 ### Simulations survival
@@ -37,3 +38,4 @@ In this subdirectory we present all the functions to simulate the survival data,
   * skorch_notime_survival: code for the subclass of skorch that allows fitting our model for survival data without time dependence (adding the proximal operator). It is needed to fit the sparse NAM.
   * simulations_surv_R: R script to fit the Lasso and Relgam models to the simulated survival datasets.
   * subplot_surv: script to plot the results of the survival simulation study. It will create for each sample size three plots (one for the wrong structure proportion, one for the C-index and the other one for the IBS).
+  * plot_feat_survival:  script to plot the shape function of each one of the explanatory features in some simulated survival datasets.
