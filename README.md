@@ -13,8 +13,27 @@ In this subdirectory we present all the functions to simulate the regression dat
   * cross_validation_regression: script with the Cross validation class for regression data that does Cross validation for the learning rate, alpha and lambda.
   * simulationdata_regression: script that generates the data for the different scenarios of the regression simulations.
   * model_regression: script with our model for regression data and the NAM model for regression data.
-  * skorch_regression: code for the subclass of skorch that allows fitting our model (adding the proximal operator).
+  * skorch_regression: code for the subclass of skorch that allows fitting our model for regression data (adding the proximal operator).
   * sparse_NAM_regression: script with the function to fit the sparse NAM model, doing the CV and obtaining the optimal hyperparameters for the corresponding datasets from all sample sizes.
   * NAM_regression: script to fit the NAM model for all the scenarios from the different sample sizes.
   * simulations_reg_R: R script to fit the Lasso, Gamsel and Relgam models to the simulated regression datasets.
   * subplot_reg: script to plot the results of the regression simulation study. It will create for each sample size two plots (one for the wrong structure proportion and the other one for the MSE).
+
+
+### Simulations survival
+
+In this subdirectory we present all the functions to simulate the survival data, fit our model and the competing methods to the simulated data and plot the results.
+
+  * simulations_survival: script that obtains, for all the sample sizes and the different scenarios, the simulated data and the results of our model.
+  * functions_survival: script with the functions to fit the model and obtain the final results for the survival simulated data. We do the cross validation, we obtain the optimal hyperparameters, we fit the final models and we obtain the structure found, the C-index and the IBS.
+  * cross_validation_survival: script with the Cross validation class for survival data that does Cross validation for the learning rate, alpha and lambda (in the case in which the model has time dependence).
+  * simulationdata_survival: script that generates the data for the different scenarios of the survival simulations.
+  * model_survival: script with our model for survival data, the sparse NAM model and the NAM for survival data.
+  * skorch_survival: code for the subclass of skorch that allows fitting our model for survival data (adding the proximal operator).
+  * sparse_NAM_survival: script with the function to fit the sparse NAM model, doing the CV and obtaining the optimal hyperparameters for the corresponding datasets from all sample sizes.
+  * NAM_survival: script to fit the NAM model for all the scenarios from the different sample sizes.
+  * functions_sparse_NAM: script with the functions needed to fit the sparse NAM model to the survival data and obtain the evaluation metrics.
+  * cross_validation_notime_surv: script with the Cross validation class for survival data that does Cross validation for the learning rate, alpha and lambda (in the case in which the model has no time dependence). It is needed to fit the sparse NAM.
+  * skorch_notime_survival: code for the subclass of skorch that allows fitting our model for survival data without time dependence (adding the proximal operator). It is needed to fit the sparse NAM.
+  * simulations_surv_R: R script to fit the Lasso and Relgam models to the simulated survival datasets.
+  * subplot_surv: script to plot the results of the survival simulation study. It will create for each sample size three plots (one for the wrong structure proportion, one for the C-index and the other one for the IBS).
