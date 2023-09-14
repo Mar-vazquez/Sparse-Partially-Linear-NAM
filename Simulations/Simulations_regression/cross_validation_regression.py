@@ -6,6 +6,7 @@ Created on Tue Jul 18 09:23:05 2023
 @author: marvazquezrabunal
 """
 
+
 """
 CROSS VALIDATION REGRESSION
 
@@ -307,7 +308,8 @@ class CrossValidation_regression:
 
         Parameters
         ----------
-        x : vector to which apply the proximal operator.
+        non_linear_weights: vector of non-linear weights.
+        linear_weights: linear weight.
         lambda1 : penalization parameter.
         alpha: penalization quantity.
         
@@ -340,7 +342,7 @@ class CrossValidation_regression:
         # Fit dense model
         new_net = self.dense_model(X, y, alpha)
         
-        #Find the lambda that sets one attribute to 0
+        # Find the lambda that sets one attribute to 0
         lambda_seq = np.linspace(0, 1300, 1000)
         k = 0
         for lambda1 in lambda_seq:

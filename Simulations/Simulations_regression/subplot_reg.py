@@ -109,7 +109,6 @@ plt.axvline(x=5.5, color='gray', linestyle='dashed')
 plt.axvline(x=10.5, color='gray', linestyle='dashed')
 
 # Remove x-axis labels and set only ticks at scenario boundaries
-#plt.xticks(np.arange(len(set(scenario_factor)) + 1), [])
 scenario_ticks = [1,2,3,4,5,6, 7, 8,9,10,11,12, 13,14,15]
 scenario_labels = ['','','Linear','','','','', 'Non-Linear','','','','' ,'Mix','','']
 plt.xticks(scenario_ticks, scenario_labels)
@@ -170,7 +169,6 @@ plt.axvline(x=5.5, color='gray', linestyle='dashed')
 plt.axvline(x=10.5, color='gray', linestyle='dashed')
 
 # Remove x-axis labels and set only ticks at scenario boundaries
-#plt.xticks(np.arange(len(set(scenario_factor)) + 1), [])
 scenario_ticks = [1,2,3,4,5,6, 7, 8,9,10,11,12, 13,14,15]
 scenario_labels = ['','','Linear','','','','', 'Non-Linear','','','','' ,'Mix','','']
 plt.xticks(scenario_ticks, scenario_labels)
@@ -319,7 +317,6 @@ plt.axvline(x=5.5, color='gray', linestyle='dashed')
 plt.axvline(x=10.5, color='gray', linestyle='dashed')
 
 # Remove x-axis labels and set only ticks at scenario boundaries
-#plt.xticks(np.arange(len(set(scenario_factor)) + 1), [])
 scenario_ticks = [1,2,3,4,5,6, 7, 8,9,10,11,12, 13,14,15]
 scenario_labels = ['','','Linear','','','','', 'Non-Linear','','','','' ,'Mix','','']
 plt.xticks(scenario_ticks, scenario_labels)
