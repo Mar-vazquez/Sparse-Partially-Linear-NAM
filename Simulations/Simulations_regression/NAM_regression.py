@@ -6,6 +6,20 @@ Created on Thu Aug 17 12:20:18 2023
 @author: marvazquezrabunal
 """
 
+
+"""
+NAM REGRESSION
+
+
+Description:
+
+Code to fit a NAM to regression data.
+
+"""
+
+###----------------------------------------------------------------------------
+
+### Call libraries
 from skorch_regression import NeuralNet_regression
 from model_regression import NAM_regression
 from sklearn.model_selection import train_test_split
@@ -18,14 +32,23 @@ import numpy as np
 import random
 from sklearn.metrics import mean_squared_error
 
-### NAM REGRESSION
-
-## Code to fit a NAM to the regression data
 
 ###----------------------------------------------------------------------------
 ### Function to fit the NAM
 
 def NAM_fit_reg(X, y):
+    """Fit a NAM model to regression data.
+
+    Parameters
+    ----------
+    X: explanatory data.
+    y: response.
+        
+    Returns
+    -------
+    Fitted NAM.
+    
+    """
     module_ = NAM_regression(X.shape[1])
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
     valid_ds = Dataset(X_test, y_test)
@@ -44,13 +67,15 @@ def NAM_fit_reg(X, y):
     return net
 
 ###----------------------------------------------------------------------------
-### Fit the model to the simulated data
+### Fit the model to the simulated data for the different sample sizes.
 
+# Change the seq_names depending on the sample size
 #seq_names = ["190", "370", "460", "550", "730", "208", "307", "505", "604", "703", "172", "352", "343", "235", "424"]
 #seq_names = ["280", "370", "460", "550", "640", "208", "307", "406", "505", "703", "181", "262", "343", "136", "523"]
 seq_names = ["190", "280", "460", "550", "730", "109", "208", "406", "505", "604", "172", "262", "343", "226", "451"]
 
 
+# Change the n_ depending on the sample size. The example is for n_2000
 mse_NAM = []
 seed_list = range(1, 1000)
 for i in range(len(seq_names)):
@@ -83,7 +108,6 @@ for i in range(len(seq_names)):
 mse_NAM = np.array(mse_NAM)
 
 # Save results
-    
 pd.DataFrame(mse_NAM).to_csv('results_file/n_2000/mse_NAM_2000.csv') 
 
 

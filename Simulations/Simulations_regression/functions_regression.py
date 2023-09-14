@@ -5,10 +5,20 @@ Created on Wed Jul 19 11:20:12 2023
 
 @author: marvazquezrabunal
 """
-### FUNCTIONS SIMULATION REGRESSION
 
-## Functions to fit the model in the simulated datasets
 
+"""
+FUNCTIONS SIMULATION REGRESSION
+
+
+Description:
+
+Functions to do CV, find the optimal hyperparameters, fit the final model and
+obtain the evaluation metrics in the simulated datasets.
+
+"""
+
+###----------------------------------------------------------------------------
 
 ### Call libraries
 import numpy as np
@@ -44,7 +54,22 @@ class SimulationDataset(torch.utils.data.Dataset):
 ###----------------------------------------------------------------------------
 
 ### Function to obtain the optimal hyperparameters from the CV results
+
 def optimal_param(sol):
+    """Obtain optimal hyperparameters from the CV results and plot the CV error
+    curve.
+
+    Parameters
+    ----------
+    sol: list of results obtained after fitting the models doing CV.
+        
+    Returns
+    -------
+    List with the optimal learning rate, alpha and lambda
+    
+    """
+    
+    # Obtain the optimal hyperparameters
     lr_array = np.array([0.001, 0.005, 0.01])
     alpha_array = np.array([0.01, 0.05, 0.1])
 
@@ -75,7 +100,6 @@ def optimal_param(sol):
         alpha_list = np.concatenate((alpha_list, alpha_vect))
         lr_list = np.concatenate((lr_list, lr_vect))
 
-
     index_min = np.argmin(err_list)
     limit = err_list.min() + err_std_list[index_min]/np.sqrt(5)
     list_index = [j for j,x in enumerate(err_list) if x <= limit]
@@ -83,7 +107,9 @@ def optimal_param(sol):
     lambda_opt = lamb_list[opt_ind]
     alpha_opt = alpha_list[opt_ind]
     lr_opt = lr_list[opt_ind]
-
+    
+    
+    # Plot the CV error curve
     l = 0
     for i in range(len(res_zip)):
         lr_i = res_zip[i][0]
@@ -105,7 +131,22 @@ def optimal_param(sol):
 ###----------------------------------------------------------------------------
 
 ### Function to fit the final model given the optimal hyperparameters
+
 def final_model(seed, X, y, opt_param):
+    """Fit the final model using the optimal hyperparameters.
+
+    Parameters
+    ----------
+    seed: random seed.
+    X: data with the explanatory variables.
+    y: response.
+    opt_param: list with the optimal hyperparameters from the CV.
+        
+    Returns
+    -------
+    Final fitted model.
+    
+    """
     np.random.seed(seed)    
     random.seed(seed)
     torch.manual_seed(seed)
@@ -119,7 +160,25 @@ def final_model(seed, X, y, opt_param):
 ###----------------------------------------------------------------------------
 
 ### Function to obtain the structures found and the proportion of wrong ones
+
 def wrong_classif_regression(nfeat, res, rest):
+    """Obtain the type of structure of each feature and the proportion of 
+    wrongly found ones.
+    
+    Parameters
+    ----------
+    nfeat: number of explanatory features in the data.
+    res: final fitted model.
+    rest: list with the information from the simulated data. 
+        
+    Returns
+    -------
+    List with the proportion of wrongly found structure and with the features
+    that were found in each category. 
+    
+    """
+    
+    # Find the features belonging to each structure category
     non_lin = []
     lin = []
     sparse = []
@@ -147,7 +206,8 @@ def wrong_classif_regression(nfeat, res, rest):
     real_lin = ind[elem[0]:elem[0] + elem[1]]
     real_non_lin = ind[elem[0] + elem[1]:]
 
-
+    
+    # Find the proportion of wrongly found structure
     wrong_classif = 0
     for i in sparse:
         if i not in real_sparse:
@@ -169,14 +229,37 @@ def wrong_classif_regression(nfeat, res, rest):
     
 
 def simulation_CV(nfeat, prop, size, seed, seed2):
+    """Function that obtains the simulated data, applies CV, fits the final 
+    model and obtains the evaluation metrics.
+
+    Parameters
+    ----------
+    nfeat: number of explanatory features in the data.
+    prop: proportion of sparse/linear/non-linear features.
+    size: sample size of the data.
+    seed: initial random seed.
+    seed2: list of random seeds with which we fit the final model.
+        
+    Returns
+    -------
+    List with the information about the results of the simulation experiment.
+    We return the seeds, the simulated data, the info about this simulated data,
+    the lr and alphas used in CV, the result of CV, the optimal hyperparameters,
+    the MSE, the wrong proportion found and the structure of each feature for
+    the final models.
+    
+    """
     np.random.seed(seed)    
     random.seed(seed)
     torch.manual_seed(seed)
+    
+    # Simulate the data and transform it
     X, y, rest = simulation_regression(nfeat, prop, size)
     dataset = SimulationDataset(X, y, scale_data=True)
     X2 = dataset.X.numpy().astype(np.float32)
     y2 = dataset.y.numpy().astype(np.float32)
 
+    # Do the CV
     lr_array = np.array([0.001, 0.005, 0.01])
     alpha_array = np.array([0.01, 0.05, 0.1])
 
@@ -204,7 +287,10 @@ def simulation_CV(nfeat, prop, size, seed, seed2):
     end = time.time()
     print((end - start)/60)
     
+    # Obtain the optimal hyperparameters
     opt_param = optimal_param(sol)
+    
+    # Fit the final models and obtain the evaluation metrics
     wrong_list =[]
     mse_list = []
     classif_list = []

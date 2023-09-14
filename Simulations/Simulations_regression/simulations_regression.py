@@ -6,12 +6,21 @@ Created on Fri Aug 25 16:33:39 2023
 @author: marvazquezrabunal
 """
 
-### SIMULATIONS REGRESSION
 
-## Code to simulate the regression datasets and obtain the results of our model
+"""
+SIMULATIONS REGRESSION
+
+
+Description:
+    
+Code to obtain the results of the regression simulations for all 
+the sample sizes (considering different proportions of sparse/linear/non_linear).
+
+"""
 
 
 ###----------------------------------------------------------------------------
+
 ### Call libraries
 
 import numpy as np

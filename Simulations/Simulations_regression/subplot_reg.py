@@ -6,6 +6,21 @@ Created on Tue Aug 22 11:50:37 2023
 @author: marvazquezrabunal
 """
 
+
+"""
+PLOT RESULTS REGRESSION SIMULATION
+
+
+Description:
+
+Function to plot the results of the regression simulations, both in terms of 
+structure and in terms of MSE.
+
+"""
+
+###----------------------------------------------------------------------------
+
+### Call libraries
 import pickle
 import numpy as np
 import pandas as pd
@@ -13,11 +28,9 @@ import matplotlib.pyplot as plt
 import matplotlib
 
 
-### PLOT RESULTS REGRESSION SIMULATION
+###----------------------------------------------------------------------------
 
-### Function to plot the results of the regression simulations, both in terms
-## of structure and in terms of MSE
-
+# Fix some parameters of the plots
 plt.rcParams["figure.figsize"] = (20,25)
 font = {'family' : 'normal',
         'size'   : 18}
@@ -464,7 +477,7 @@ plt.legend(fontsize="16")
 ### Add main title and save plot
 
 plt.suptitle("Simulations Regression", fontweight='bold', fontsize="34")
-plt.savefig("results_file/subplots_reg.png", format="png", dpi = 300)
+plt.savefig("results_file/subplots_reg.png", format="png", dpi = 150)
 plt.show()
 
 

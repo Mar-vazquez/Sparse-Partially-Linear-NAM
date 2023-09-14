@@ -6,13 +6,23 @@ Created on Tue Jul 18 09:36:11 2023
 @author: marvazquezrabunal
 """
 
+
+"""
+MODEL REGRESSION
+
+
+Description:
+
+Code with the architecture of the models used for regression
+
+"""
+
+###----------------------------------------------------------------------------
+
+### Call libraries
 from torch import nn
 import torch.nn.functional as F
 import torch
-
-### MODELS REGRESSION
-
-## Code to fit the regression models
 
 ###----------------------------------------------------------------------------
 ### Linear and non linear modules
@@ -75,7 +85,7 @@ class model_regression(nn.Module):
 ###----------------------------------------------------------------------------
 ###----------------------------------------------------------------------------
 
-### Create copy of the model (for plotting the behavior of each feature separately)
+### Create copy of the model (for plotting the behaviour of each feature separately)
 
 class model_regression_copy(nn.Module):
   def __init__(self, nfeat):

@@ -6,6 +6,20 @@ Created on Tue Jul 18 09:23:05 2023
 @author: marvazquezrabunal
 """
 
+"""
+CROSS VALIDATION REGRESSION
+
+
+Description:
+
+Code to perform cross validation on regression datasets.
+
+"""
+
+
+###----------------------------------------------------------------------------
+
+### Call libraries
 
 import numpy as np
 from sklearn.model_selection import KFold
@@ -22,9 +36,7 @@ import random
 sys.path.append("/Users/marvazquezrabunal/Library/Mobile Documents/com~apple~CloudDocs/ETH/Spring 2023/Thesis/Simulations/Regression")
 from skorch_regression import NeuralNet_regression
 
-### CROSS VALIDATION REGRESSION
 
-## Code to perform cross validation on regression datasets
 
 ###----------------------------------------------------------------------------
 

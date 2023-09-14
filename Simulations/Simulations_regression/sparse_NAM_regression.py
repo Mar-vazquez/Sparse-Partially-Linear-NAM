@@ -6,6 +6,20 @@ Created on Thu Aug 17 16:06:39 2023
 @author: marvazquezrabunal
 """
 
+
+"""
+SPARSE NAM REGRESSION
+
+
+Description:
+
+Code to fit the sparse NAM to regression data.
+
+"""
+
+###----------------------------------------------------------------------------
+
+### Call libraries
 from model_regression import model_regression
 import torch
 import pandas as pd
@@ -19,14 +33,26 @@ from functions_regression import wrong_classif_regression, final_model
 import pickle
 import matplotlib.pyplot as plt
 
-### SPARSE NAM REGRESSION
 
-## Code to fit the sparse NAM
 
 ###----------------------------------------------------------------------------
 ### Function to obtain the optimal hyperparameters
 
 def optimal_param(sol):
+    """Obtain optimal hyperparameters from the CV results and plot the CV error
+    curve.
+
+    Parameters
+    ----------
+    sol: list of results obtained after fitting the sparse NAM models doing CV.
+        
+    Returns
+    -------
+    List with the optimal learning rate, alpha and lambda
+    
+    """
+    
+    # Obtain the optimal hyperparameters
     lr_array = np.array([0.001, 0.005, 0.01])
     alpha_array = np.array([1])
 
@@ -65,7 +91,8 @@ def optimal_param(sol):
     lambda_opt = lamb_list[opt_ind]
     alpha_opt = alpha_list[opt_ind]
     lr_opt = lr_list[opt_ind]
-
+    
+    # Plot the CV error curve
     l = 0
     for i in range(len(res_zip)):
         lr_i = res_zip[i][0]
@@ -88,10 +115,30 @@ def optimal_param(sol):
 ### Function to fit the sparse NAM 
 
 def sparse_NAM_fit_regression(X_train, y_train, X_test, y_test, seed, rest, seed2):
+    """Does CV, fits the final sparse NAM model and obtains the evaluation metrics.
+
+    Parameters
+    ----------
+    X_train: training explanatory features.
+    y_train: training response.
+    X_test: test explanatory features.
+    y_test: test response.
+    seed: initial random seed.
+    rest: information about the simulated data.
+    seed2: list of random seeds with which we fit the final models.
+        
+    Returns
+    -------
+    List with the seeds, information about the simulated data, lr and alphas
+    used for the CV, result of the CV, optimal hyperparameters, MSE and 
+    proportion of wrong structure found.
+    
+    """
     np.random.seed(seed)    
     random.seed(seed)
     torch.manual_seed(seed)
     
+    # Do CV
     lr_array = np.array([0.001, 0.005, 0.01])
     alpha_array = np.array([1])
     
@@ -118,8 +165,10 @@ def sparse_NAM_fit_regression(X_train, y_train, X_test, y_test, seed, rest, seed
     end = time.time()
     print((end - start)/60)
     
-    
+    # Obtain optimal hyperparameters
     opt_param = optimal_param(sol)
+    
+    # Fit final models and obtain evaluation metrics
     wrong_list =[]
     mse_list = []
     
@@ -137,12 +186,15 @@ def sparse_NAM_fit_regression(X_train, y_train, X_test, y_test, seed, rest, seed
     return info
 
 ###----------------------------------------------------------------------------
-### Fit the sparse NAM on the simulated datasets 
+### Fit the sparse NAM on the simulated datasets for the different sample sizes
 
+
+# Change the proportion depending on the sample size
 seq_names = ["208", "307", "505", "604", "703"]
 #seq_names = ["208", "307", "406", "505", "703"]
-#seq_names = ["109", "208", "406", "505", "604"]
+#seq_names = ["109", "2
 
+# Change the n_ depending on the sample size. The example is for n_700
 mse_sparse_NAM = []
 wrong_sparse_NAM = []
 seed_list = range(1, 1000)

@@ -1,12 +1,22 @@
-### Simulation regression
+# Simulation regression (Lasso, Relgam and Gamsel)
+
+## Description:
+
+### Fit the Lasso, Relgam and Gamsel models to the simulated regression data and
+### obtain the evaluation metrics (MSE and wrong structure proportion)
+
+###-----------------------------------------------------------------------------
 
 ### Call libraries
 library(glmnet)
 library(relgam)
 library(gamsel)
 
+###-----------------------------------------------------------------------------
 
-### Sequence of proportions, seeds and read ind and elem files
+### Sequence of proportions, seeds and read ind and elem files 
+### Change the values depending on the sample size. This is an example for n = 1000
+
 #seq_prop <- c(190, 280, 460, 550, 730, 109, 208, 406, 505, 604, 172, 262, 343, 226, 451)
 seq_prop <- c(280, 370, 460, 550, 640, 208, 307, 406, 505, 703, 181, 262, 343, 136, 523)
 seed_list <- seq(1, 2000)

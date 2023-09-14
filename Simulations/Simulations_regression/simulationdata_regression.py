@@ -5,17 +5,29 @@ Created on Tue Jul 18 10:07:58 2023
 
 @author: marvazquezrabunal
 """
+
+"""
+SIMULATION DATA REGRESSION
+
+
+Description:
+    
+Code to simulate the regression datasets.
+
+"""
+
+
+###----------------------------------------------------------------------------
+
+### Call libraries
+
 import numpy as np
 import random
 import copy
 from sklearn.preprocessing import StandardScaler
 
-### SIMULATION DATA REGRESSION
-
-## Code to simulate the regression datasets
-
 ###----------------------------------------------------------------------------
-## Define some non linear functions
+## Define some non-linear functions
 
 def square(x):
     return x**2
@@ -37,6 +49,20 @@ def cos2(x):
 ## Simulate the regression data
 
 def simulation_regression(nfeat, prop, size):
+    """Simulate the regression datasets.
+
+    Parameters
+    ----------
+    nfeat: number of explanatory features in the data.
+    prop: proportion of sparse/linear/non-linear features.
+    size: sample size of the data.
+        
+    Returns
+    -------
+    The explanatory simulated features, the response and a list with the
+    information about the simulated data.
+    
+    """
     
     # Simulate X uniformly
     x=np.random.uniform(-2, 2, size).reshape(size, 1)
@@ -47,7 +73,7 @@ def simulation_regression(nfeat, prop, size):
     # Scale and center X
     x = StandardScaler().fit_transform(x)
     
-    # Define list of possible linearities and slopes
+    # Define list of possible non-linearities and slopes
     non_lin_list=[sin2, cos2, np.exp, log_abs, square, cube]
     slope_options = [0.5, 0.6, 0.8, 1, 1.2, 1.5, 1.8, 2]
     
@@ -63,7 +89,7 @@ def simulation_regression(nfeat, prop, size):
     nl_selected = random.choices(non_lin_list, k = int(elem[2]))
     slopes_lin = random.choices(slope_options, k = int(elem[1]))
     
-    # Randomly select which variable has each behavior and their sign
+    # Randomly select which variable has each behaviour and their sign
     ind = random.sample(range(nfeat), nfeat)
     new_x = copy.deepcopy(x)
     new_x[:,ind[0:int(elem[0])]] *=  0
