@@ -1,5 +1,7 @@
 # Final_master_thesis
 
+We are going to present all the functions that we used to obtain the final results in this Master Thesis. In each folder we have the necessary scripts to be able to reproduce the results shown in the Master Thesis document. We can see that some of the files have been uploaded in more than one directory but just to make sure that in that specific directory we have everything that we need to obtain the results correspondent to that section.
+
 ## Simulations
 
 In this directory we are going to show all the code needed to replicate the simulations done with the regression and the survival data.
@@ -52,10 +54,23 @@ In this subdirectory we present all the functions to fit our models to real-worl
 
   * cross_validation_regression: script with the Cross validation class for regression data that does Cross validation for the learning rate, alpha and lambda (it is the same script shown in the simulation directory).
   * model_regression: script with our model for regression data and the NAM model for regression data (it is the same script shown in the simulation directory).
-  * functions_data_reg: script with the functions to fit the models to the real-world regresssion data, obtain the MSE and the structure of each feature.
+  * functions_data_reg: script with the functions to fit the models to the real-world regression data, obtain the MSE and the structure of each feature.
   * wine_functions: script with the code to fit the models to the Wine dataset and obtain the results.
-  * abalone_functions: script with the code to fit the models to the Abalone dataset and obtain the results.
+  * abalone_functions: script with the code to fit the models to the Abalone dataset and obtain the results. It also shows the code to plot the predicted shape functions of the features.
   * functions_R_data_reg: script with the code to fit the Lasso, Relgam and Gamsel models to the real-world regression datasets.
+  * skorch_regression: code for the subclass of skorch that allows fitting our model for regression data (adding the proximal operator) (it is the same script shown in the simulation directory).
+
+### Classification
+
+In this subdirectory we present all the functions to fit our models to real-world binary classification datasets (Titanic).
+
+  * cross_validation_classification: script with the Cross validation class for classification data that does Cross validation for the learning rate, alpha and lambda.
+  * model_classification: script with our model for binary classification data and the NAM model for binary classification data.
+  * functions_data_classification: script with the functions to fit the models to the real-world classification data, obtain the F1 score, the AUC and the structure of each feature.
+  * titanic_functions: script with the code to fit the models to the Titanic dataset and obtain the results. It also shows the code to plot the predicted shape functions of the features.
+  * functions_R_data_classif: script with the code to fit the Lasso model to the real-world classification datasets.
+  * skorch_regression: code for the subclass of skorch that allows fitting our model for classification data (adding the proximal operator) (it is the same script used in the case in which we have regression data).
+
 
 
 
