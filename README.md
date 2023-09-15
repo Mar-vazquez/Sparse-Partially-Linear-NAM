@@ -71,6 +71,21 @@ In this subdirectory we present all the functions to fit our models to real-worl
   * functions_R_data_classif: script with the code to fit the Lasso model to the real-world classification datasets.
   * skorch_regression: code for the subclass of skorch that allows fitting our model for classification data (adding the proximal operator) (it is the same script used in the case in which we have regression data).
 
+### Survival
+
+In this subdirectory we present all the functions to fit our models to real-world survival datasets (METABRIC, Rot. & GBSG and FLCHAIN).
+
+  * cross_validation_survival: script with the Cross validation class for survival data that does Cross validation for the learning rate, alpha and lambda (it is the same script shown in the simulation directory).
+  * model_survival: script with our model for survival data, the sparse NAM model and the NAM for survival data (it is the same script shown in the simulation directory).
+  * functions_data_surv: script with the functions to fit the models to the real-world classification data, obtain the F1 score, the AUC and the structure of each feature.
+  * metabric_functions: script with the code to fit the models to the METABRIC dataset and obtain the results.
+  * rgbsg_functions: script with the code to fit the models to the Rot. & GBSG dataset and obtain the results. It also shows the code to plot the predicted shape functions of the features.
+  * flchain_functions: script with the code to fit the models to the FLCHAIN dataset and obtain the results. 
+  * functions_R_data_surv: script with the code to fit the Lasso model to the real-world survival datasets.
+  * skorch_survival: code for the subclass of skorch that allows fitting our model for survival data (adding the proximal operator) (it is the same script used in the case in which we have regression data) (it is the same script shown in the simulation directory).
+  * cross_validation_notime_surv: script with the Cross validation class for survival data that does Cross validation for the learning rate, alpha and lambda (in the case in which the model has no time dependence). It is needed to fit the sparse NAM (it is the same script shown in the simulation directory).
+
+
 
 
 
