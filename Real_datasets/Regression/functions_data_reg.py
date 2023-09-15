@@ -346,7 +346,7 @@ def results_data_NAM_reg(X_train, y_train, X_test, y_test):
 ###----------------------------------------------------------------------------
 ###----------------------------------------------------------------------------
 """
-FUNCTIONS TO FIT THE sparse NAM
+FUNCTIONS TO FIT THE SPARSE NAM
 """
 
 
