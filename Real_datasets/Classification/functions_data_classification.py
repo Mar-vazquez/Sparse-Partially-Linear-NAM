@@ -199,7 +199,7 @@ def final_model(X, y, opt_param, seed):
         
     Returns
     -------
-    List with the optimal learning rate, alpha and lambda
+    Fitted model.
     
     """
     np.random.seed(seed)    
