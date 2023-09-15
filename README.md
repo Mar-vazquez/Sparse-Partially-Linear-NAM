@@ -39,3 +39,24 @@ In this subdirectory we present all the functions to simulate the survival data,
   * simulations_surv_R: R script to fit the Lasso and Relgam models to the simulated survival datasets.
   * subplot_surv: script to plot the results of the survival simulation study. It will create for each sample size three plots (one for the wrong structure proportion, one for the C-index and the other one for the IBS).
   * plot_feat_survival:  script to plot the shape function of each one of the explanatory features in some simulated survival datasets.
+
+
+## Real_datasets
+
+In this directory we are going to show all the code needed to replicate the results obtained with real-world datasets for regression, classification and survival.
+
+
+### Regression
+
+In this subdirectory we present all the functions to fit our models to real-world regression datasets (wine and abalone).
+
+  * cross_validation_regression: script with the Cross validation class for regression data that does Cross validation for the learning rate, alpha and lambda (it is the same script shown in the simulation directory).
+  * model_regression: script with our model for regression data and the NAM model for regression data (it is the same script shown in the simulation directory).
+  * functions_data_reg: script with the functions to fit the models to the real-world regresssion data, obtain the MSE and the structure of each feature.
+  * wine_functions: script with the code to fit the models to the Wine dataset and obtain the results.
+  * abalone_functions: script with the code to fit the models to the Abalone dataset and obtain the results.
+  * functions_R_data_reg: script with the code to fit the Lasso, Relgam and Gamsel models to the real-world regression datasets.
+
+
+
+
