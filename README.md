@@ -2,6 +2,8 @@
 
 We are going to present all the functions and the data that we used to obtain the final results in this Master Thesis. In each folder we have the necessary scripts to be able to reproduce the results shown in the Master Thesis document. We can see that some of the files have been uploaded in more than one directory but just to make sure that in that specific directory we have everything that we need to obtain the results correspondent to that section.
 
+We also have the requirements.txt file in which we include the information related to the libraries and packages used for this project.
+
 ## Datasets
 
 In this directory we have a zip file that contains all the real-world datasets used in this project.
