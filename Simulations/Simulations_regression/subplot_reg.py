@@ -33,9 +33,11 @@ import matplotlib
 # Fix some parameters of the plots
 plt.rcParams["figure.figsize"] = (20,25)
 font = {'family' : 'normal',
-        'size'   : 18}
+        'size'   : 22}
 
 matplotlib.rc('font', **font)
+
+CB_color = '#377eb8', '#ff7f00', '#4daf4a','#f781bf', '#a65628', '#984ea3','#999999', '#e41a1c', '#dede00'
 
 ###----------------------------------------------------------------------------
 ###----------------------------------------------------------------------------
@@ -84,20 +86,20 @@ lasso_wrong_std = lasso_wrong.std(axis = 1)
 # Plot
 plt.subplot(321)
 
-plt.scatter(scenario_factor, wrong_mean, marker='o', s=50, c = 'deeppink', label = "Our model")
-plt.errorbar(scenario_factor, wrong_mean, wrong_std, fmt = 'none', ecolor = 'deeppink', capsize = 3)
+plt.scatter(scenario_factor, wrong_mean, marker='o', s=70, c = CB_color[7], label = "Our model")
+plt.errorbar(scenario_factor, wrong_mean, wrong_std, fmt = 'none', ecolor = CB_color[7], capsize = 3)
 
-plt.scatter(scenario_factor, gamsel_wrong_mean, marker='^', s=50, c = 'turquoise', label = "Gamsel")
-plt.errorbar(scenario_factor, gamsel_wrong_mean, gamsel_wrong_std, fmt = 'none', ecolor = 'turquoise', capsize = 3)
+plt.scatter(scenario_factor, gamsel_wrong_mean, marker='^', s=70, c = CB_color[1], label = "Gamsel")
+plt.errorbar(scenario_factor, gamsel_wrong_mean, gamsel_wrong_std, fmt = 'none', ecolor = CB_color[1], capsize = 3)
 
-plt.scatter(scenario_factor, rel_wrong_mean, marker='X', s=35, c = 'darkviolet', label = "Relgam")
-plt.errorbar(scenario_factor, rel_wrong_mean, rel_wrong_std, fmt = 'none', ecolor = 'darkviolet', capsize = 3)
+plt.scatter(scenario_factor, rel_wrong_mean, marker='X', s=70, c = CB_color[0], label = "Relgam")
+plt.errorbar(scenario_factor, rel_wrong_mean, rel_wrong_std, fmt = 'none', ecolor = CB_color[0], capsize = 3)
 
-plt.scatter(scenario_factor[0:5], lasso_wrong_mean, marker='*', s=50, c = 'orange', label = "Lasso")
-plt.errorbar(scenario_factor[0:5], lasso_wrong_mean, lasso_wrong_std, fmt = 'none', ecolor = 'orange', capsize = 3)
+plt.scatter(scenario_factor[0:5], lasso_wrong_mean, marker='*', s=70, c = CB_color[3], label = "Lasso")
+plt.errorbar(scenario_factor[0:5], lasso_wrong_mean, lasso_wrong_std, fmt = 'none', ecolor = CB_color[3], capsize = 3)
 
-plt.scatter(scenario_factor[5:10], sparse_wrong_mean, marker='d', s=50, c = 'greenyellow', label = "Sparse NAM")
-plt.errorbar(scenario_factor[5:10], sparse_wrong_mean, sparse_wrong_std, fmt = 'none', ecolor = 'greenyellow', capsize = 3)
+plt.scatter(scenario_factor[5:10], sparse_wrong_mean, marker='d', s=70, c = CB_color[8], label = "Sparse NAM")
+plt.errorbar(scenario_factor[5:10], sparse_wrong_mean, sparse_wrong_std, fmt = 'none', ecolor = CB_color[8], capsize = 3)
 
 
 # Add labels and title
@@ -115,7 +117,7 @@ plt.xticks(scenario_ticks, scenario_labels)
 
 
 # Add a legend
-plt.legend(fontsize="16")
+plt.legend(fontsize="19")
 
 plt.ylim(-0.05, 1)
 
@@ -142,23 +144,23 @@ NAM_mse_std = NAM_mse.std(axis = 1)
 
 # Plot
 plt.subplot(322)
-plt.scatter(scenario_factor, mse_mean, marker='o', s=50, c = 'deeppink', label = "Our model")
-plt.errorbar(scenario_factor, mse_mean, mse_std, fmt = 'none', ecolor = 'deeppink', capsize = 3)
+plt.scatter(scenario_factor, mse_mean, marker='o', s=70, c = CB_color[7], label = "Our model")
+plt.errorbar(scenario_factor, mse_mean, mse_std, fmt = 'none', ecolor = CB_color[7], capsize = 3)
 
-plt.scatter(scenario_factor, gamsel_mse_mean, marker='^', s=50, c = 'turquoise', label = "Gamsel")
-plt.errorbar(scenario_factor, gamsel_mse_mean, gamsel_mse_std, fmt = 'none', ecolor = 'turquoise', capsize = 3)
+plt.scatter(scenario_factor, gamsel_mse_mean, marker='^', s=70, c = CB_color[1], label = "Gamsel")
+plt.errorbar(scenario_factor, gamsel_mse_mean, gamsel_mse_std, fmt = 'none', ecolor = CB_color[1], capsize = 3)
 
-plt.scatter(scenario_factor, rel_mse_mean, marker='X', s=35, c = 'darkviolet', label = "Relgam")
-plt.errorbar(scenario_factor, rel_mse_mean, rel_mse_std, fmt = 'none', ecolor = 'darkviolet', capsize = 3)
+plt.scatter(scenario_factor, rel_mse_mean, marker='X', s=70, c = CB_color[0], label = "Relgam")
+plt.errorbar(scenario_factor, rel_mse_mean, rel_mse_std, fmt = 'none', ecolor = CB_color[0], capsize = 3)
 
-plt.scatter(scenario_factor[0:5], lasso_mse_mean, marker='*', s=50, c = 'orange', label = "Lasso")
-plt.errorbar(scenario_factor[0:5], lasso_mse_mean, lasso_mse_std, fmt = 'none', ecolor = 'orange', capsize = 3)
+plt.scatter(scenario_factor[0:5], lasso_mse_mean, marker='*', s=70, c = CB_color[3], label = "Lasso")
+plt.errorbar(scenario_factor[0:5], lasso_mse_mean, lasso_mse_std, fmt = 'none', ecolor = CB_color[3], capsize = 3)
 
-plt.scatter(scenario_factor[5:10], sparse_mse_mean, marker='d', s=50, c = 'greenyellow', label = "Sparse NAM")
-plt.errorbar(scenario_factor[5:10], sparse_mse_mean, sparse_mse_std, fmt = 'none', ecolor = 'greenyellow', capsize = 3)
+plt.scatter(scenario_factor[5:10], sparse_mse_mean, marker='d', s=70, c = CB_color[8], label = "Sparse NAM")
+plt.errorbar(scenario_factor[5:10], sparse_mse_mean, sparse_mse_std, fmt = 'none', ecolor = CB_color[8], capsize = 3)
 
-plt.scatter(scenario_factor, NAM_mse_mean, marker='2', s=35, c = 'green', label = "NAM")
-plt.errorbar(scenario_factor, NAM_mse_mean, NAM_mse_std, fmt = 'none', ecolor = 'green', capsize = 3)
+plt.scatter(scenario_factor, NAM_mse_mean, marker='p', s=70, c = CB_color[2], label = "NAM")
+plt.errorbar(scenario_factor, NAM_mse_mean, NAM_mse_std, fmt = 'none', ecolor = CB_color[2], capsize = 3)
 
 # Add labels and title
 plt.ylabel('MSE', fontweight='bold')
@@ -175,7 +177,7 @@ plt.xticks(scenario_ticks, scenario_labels)
 
 
 # Add a legend
-plt.legend(fontsize="16")
+plt.legend(fontsize="19")
 
 
 
@@ -228,20 +230,20 @@ lasso_wrong_std = lasso_wrong.std(axis = 1)
 # Plot
 plt.subplot(323)
 
-plt.scatter(scenario_factor, wrong_mean, marker='o', s=50, c = 'deeppink', label = "Our model")
-plt.errorbar(scenario_factor, wrong_mean, wrong_std, fmt = 'none', ecolor = 'deeppink', capsize = 3)
+plt.scatter(scenario_factor, wrong_mean, marker='o', s=70, c = CB_color[7], label = "Our model")
+plt.errorbar(scenario_factor, wrong_mean, wrong_std, fmt = 'none', ecolor = CB_color[7], capsize = 3)
 
-plt.scatter(scenario_factor, gamsel_wrong_mean, marker='^', s=50, c = 'turquoise', label = "Gamsel")
-plt.errorbar(scenario_factor, gamsel_wrong_mean, gamsel_wrong_std, fmt = 'none', ecolor = 'turquoise', capsize = 3)
+plt.scatter(scenario_factor, gamsel_wrong_mean, marker='^', s=70, c = CB_color[1], label = "Gamsel")
+plt.errorbar(scenario_factor, gamsel_wrong_mean, gamsel_wrong_std, fmt = 'none', ecolor = CB_color[1], capsize = 3)
 
-plt.scatter(scenario_factor, rel_wrong_mean, marker='X', s=35, c = 'darkviolet', label = "Relgam")
-plt.errorbar(scenario_factor, rel_wrong_mean, rel_wrong_std, fmt = 'none', ecolor = 'darkviolet', capsize = 3)
+plt.scatter(scenario_factor, rel_wrong_mean, marker='X', s=70, c = CB_color[0], label = "Relgam")
+plt.errorbar(scenario_factor, rel_wrong_mean, rel_wrong_std, fmt = 'none', ecolor = CB_color[0], capsize = 3)
 
-plt.scatter(scenario_factor[0:5], lasso_wrong_mean, marker='*', s=50, c = 'orange', label = "Lasso")
-plt.errorbar(scenario_factor[0:5], lasso_wrong_mean, lasso_wrong_std, fmt = 'none', ecolor = 'orange', capsize = 3)
+plt.scatter(scenario_factor[0:5], lasso_wrong_mean, marker='*', s=70, c = CB_color[3], label = "Lasso")
+plt.errorbar(scenario_factor[0:5], lasso_wrong_mean, lasso_wrong_std, fmt = 'none', ecolor = CB_color[3], capsize = 3)
 
-plt.scatter(scenario_factor[5:10], sparse_wrong_mean, marker='d', s=50, c = 'greenyellow', label = "Sparse NAM")
-plt.errorbar(scenario_factor[5:10], sparse_wrong_mean, sparse_wrong_std, fmt = 'none', ecolor = 'greenyellow', capsize = 3)
+plt.scatter(scenario_factor[5:10], sparse_wrong_mean, marker='d', s=70, c = CB_color[8], label = "Sparse NAM")
+plt.errorbar(scenario_factor[5:10], sparse_wrong_mean, sparse_wrong_std, fmt = 'none', ecolor = CB_color[8], capsize = 3)
 
 
 # Add labels and title
@@ -260,7 +262,7 @@ plt.xticks(scenario_ticks, scenario_labels)
 
 
 # Add a legend
-plt.legend(fontsize="16")
+plt.legend(fontsize="19")
 
 plt.ylim(-0.05, 1)
 
@@ -289,23 +291,23 @@ NAM_mse_std = NAM_mse.std(axis = 1)
 # Plot
 plt.subplot(324)
 
-plt.scatter(scenario_factor, mse_mean, marker='o', s=50, c = 'deeppink', label = "Our model")
-plt.errorbar(scenario_factor, mse_mean, mse_std, fmt = 'none', ecolor = 'deeppink', capsize = 3)
+plt.scatter(scenario_factor, mse_mean, marker='o', s=70, c = CB_color[7], label = "Our model")
+plt.errorbar(scenario_factor, mse_mean, mse_std, fmt = 'none', ecolor = CB_color[7], capsize = 3)
 
-plt.scatter(scenario_factor, gamsel_mse_mean, marker='^', s=50, c = 'turquoise', label = "Gamsel")
-plt.errorbar(scenario_factor, gamsel_mse_mean, gamsel_mse_std, fmt = 'none', ecolor = 'turquoise', capsize = 3)
+plt.scatter(scenario_factor, gamsel_mse_mean, marker='^', s=70, c = CB_color[1], label = "Gamsel")
+plt.errorbar(scenario_factor, gamsel_mse_mean, gamsel_mse_std, fmt = 'none', ecolor = CB_color[1], capsize = 3)
 
-plt.scatter(scenario_factor, rel_mse_mean, marker='X', s=35, c = 'darkviolet', label = "Relgam")
-plt.errorbar(scenario_factor, rel_mse_mean, rel_mse_std, fmt = 'none', ecolor = 'darkviolet', capsize = 3)
+plt.scatter(scenario_factor, rel_mse_mean, marker='X', s=70, c = CB_color[0], label = "Relgam")
+plt.errorbar(scenario_factor, rel_mse_mean, rel_mse_std, fmt = 'none', ecolor = CB_color[0], capsize = 3)
 
-plt.scatter(scenario_factor[0:5], lasso_mse_mean, marker='*', s=50, c = 'orange', label = "Lasso")
-plt.errorbar(scenario_factor[0:5], lasso_mse_mean, lasso_mse_std, fmt = 'none', ecolor = 'orange', capsize = 3)
+plt.scatter(scenario_factor[0:5], lasso_mse_mean, marker='*', s=70, c = CB_color[3], label = "Lasso")
+plt.errorbar(scenario_factor[0:5], lasso_mse_mean, lasso_mse_std, fmt = 'none', ecolor = CB_color[3], capsize = 3)
 
-plt.scatter(scenario_factor[5:10], sparse_mse_mean, marker='d', s=50, c = 'greenyellow', label = "Sparse NAM")
-plt.errorbar(scenario_factor[5:10], sparse_mse_mean, sparse_mse_std, fmt = 'none', ecolor = 'greenyellow', capsize = 3)
+plt.scatter(scenario_factor[5:10], sparse_mse_mean, marker='d', s=70, c = CB_color[8], label = "Sparse NAM")
+plt.errorbar(scenario_factor[5:10], sparse_mse_mean, sparse_mse_std, fmt = 'none', ecolor = CB_color[8], capsize = 3)
 
-plt.scatter(scenario_factor, NAM_mse_mean, marker='2', s=35, c = 'green', label = "NAM")
-plt.errorbar(scenario_factor, NAM_mse_mean, NAM_mse_std, fmt = 'none', ecolor = 'green', capsize = 3)
+plt.scatter(scenario_factor, NAM_mse_mean, marker='p', s=70, c = CB_color[2], label = "NAM")
+plt.errorbar(scenario_factor, NAM_mse_mean, NAM_mse_std, fmt = 'none', ecolor = CB_color[2], capsize = 3)
 
 
 # Add labels and title
@@ -323,7 +325,7 @@ plt.xticks(scenario_ticks, scenario_labels)
 
 
 # Add a legend
-plt.legend(fontsize="16")
+plt.legend(fontsize="19")
 
 
 ###----------------------------------------------------------------------------
@@ -373,20 +375,20 @@ lasso_wrong_std = lasso_wrong.std(axis = 1)
 # Plot
 plt.subplot(325)
 
-plt.scatter(scenario_factor, wrong_mean, marker='o', s=50, c = 'deeppink', label = "Our model")
-plt.errorbar(scenario_factor, wrong_mean, wrong_std, fmt = 'none', ecolor = 'deeppink', capsize = 3)
+plt.scatter(scenario_factor, wrong_mean, marker='o', s=70, c = CB_color[7], label = "Our model")
+plt.errorbar(scenario_factor, wrong_mean, wrong_std, fmt = 'none', ecolor = CB_color[7], capsize = 3)
 
-plt.scatter(scenario_factor, gamsel_wrong_mean, marker='^', s=50, c = 'turquoise', label = "Gamsel")
-plt.errorbar(scenario_factor, gamsel_wrong_mean, gamsel_wrong_std, fmt = 'none', ecolor = 'turquoise', capsize = 3)
+plt.scatter(scenario_factor, gamsel_wrong_mean, marker='^', s=70, c = CB_color[1], label = "Gamsel")
+plt.errorbar(scenario_factor, gamsel_wrong_mean, gamsel_wrong_std, fmt = 'none', ecolor = CB_color[1], capsize = 3)
 
-plt.scatter(scenario_factor, rel_wrong_mean, marker='X', s=35, c = 'darkviolet', label = "Relgam")
-plt.errorbar(scenario_factor, rel_wrong_mean, rel_wrong_std, fmt = 'none', ecolor = 'darkviolet', capsize = 3)
+plt.scatter(scenario_factor, rel_wrong_mean, marker='X', s=70, c = CB_color[0], label = "Relgam")
+plt.errorbar(scenario_factor, rel_wrong_mean, rel_wrong_std, fmt = 'none', ecolor = CB_color[0], capsize = 3)
 
-plt.scatter(scenario_factor[0:5], lasso_wrong_mean, marker='*', s=50, c = 'orange', label = "Lasso")
-plt.errorbar(scenario_factor[0:5], lasso_wrong_mean, lasso_wrong_std, fmt = 'none', ecolor = 'orange', capsize = 3)
+plt.scatter(scenario_factor[0:5], lasso_wrong_mean, marker='*', s=70, c = CB_color[3], label = "Lasso")
+plt.errorbar(scenario_factor[0:5], lasso_wrong_mean, lasso_wrong_std, fmt = 'none', ecolor = CB_color[3], capsize = 3)
 
-plt.scatter(scenario_factor[5:10], sparse_wrong_mean, marker='d', s=50, c = 'greenyellow', label = "Sparse NAM")
-plt.errorbar(scenario_factor[5:10], sparse_wrong_mean, sparse_wrong_std, fmt = 'none', ecolor = 'greenyellow', capsize = 3)
+plt.scatter(scenario_factor[5:10], sparse_wrong_mean, marker='d', s=70, c = CB_color[8], label = "Sparse NAM")
+plt.errorbar(scenario_factor[5:10], sparse_wrong_mean, sparse_wrong_std, fmt = 'none', ecolor = CB_color[8], capsize = 3)
 
 
 # Add labels and title
@@ -404,7 +406,7 @@ plt.xticks(scenario_ticks, scenario_labels)
 
 
 # Add a legend
-plt.legend(fontsize="16")
+plt.legend(fontsize="19")
 
 plt.ylim(-0.05, 1)
 
@@ -433,23 +435,23 @@ NAM_mse_std = NAM_mse.std(axis = 1)
 # Plot 
 plt.subplot(326)
 
-plt.scatter(scenario_factor, mse_mean, marker='o', s=50, c = 'deeppink', label = "Our model")
-plt.errorbar(scenario_factor, mse_mean, mse_std, fmt = 'none', ecolor = 'deeppink', capsize = 3)
+plt.scatter(scenario_factor, mse_mean, marker='o', s=70, c = CB_color[7], label = "Our model")
+plt.errorbar(scenario_factor, mse_mean, mse_std, fmt = 'none', ecolor = CB_color[7], capsize = 3)
 
-plt.scatter(scenario_factor, gamsel_mse_mean, marker='^', s=50, c = 'turquoise', label = "Gamsel")
-plt.errorbar(scenario_factor, gamsel_mse_mean, gamsel_mse_std, fmt = 'none', ecolor = 'turquoise', capsize = 3)
+plt.scatter(scenario_factor, gamsel_mse_mean, marker='^', s=70, c = CB_color[1], label = "Gamsel")
+plt.errorbar(scenario_factor, gamsel_mse_mean, gamsel_mse_std, fmt = 'none', ecolor = CB_color[1], capsize = 3)
 
-plt.scatter(scenario_factor, rel_mse_mean, marker='X', s=35, c = 'darkviolet', label = "Relgam")
-plt.errorbar(scenario_factor, rel_mse_mean, rel_mse_std, fmt = 'none', ecolor = 'darkviolet', capsize = 3)
+plt.scatter(scenario_factor, rel_mse_mean, marker='X', s=70, c = CB_color[0], label = "Relgam")
+plt.errorbar(scenario_factor, rel_mse_mean, rel_mse_std, fmt = 'none', ecolor = CB_color[0], capsize = 3)
 
-plt.scatter(scenario_factor[0:5], lasso_mse_mean, marker='*', s=50, c = 'orange', label = "Lasso")
-plt.errorbar(scenario_factor[0:5], lasso_mse_mean, lasso_mse_std, fmt = 'none', ecolor = 'orange', capsize = 3)
+plt.scatter(scenario_factor[0:5], lasso_mse_mean, marker='*', s=70, c = CB_color[3], label = "Lasso")
+plt.errorbar(scenario_factor[0:5], lasso_mse_mean, lasso_mse_std, fmt = 'none', ecolor = CB_color[3], capsize = 3)
 
-plt.scatter(scenario_factor[5:10], sparse_mse_mean, marker='d', s=50, c = 'greenyellow', label = "Sparse NAM")
-plt.errorbar(scenario_factor[5:10], sparse_mse_mean, sparse_mse_std, fmt = 'none', ecolor = 'greenyellow', capsize = 3)
+plt.scatter(scenario_factor[5:10], sparse_mse_mean, marker='d', s=70, c = CB_color[8], label = "Sparse NAM")
+plt.errorbar(scenario_factor[5:10], sparse_mse_mean, sparse_mse_std, fmt = 'none', ecolor = CB_color[8], capsize = 3)
 
-plt.scatter(scenario_factor, NAM_mse_mean, marker='2', s=35, c = 'green', label = "NAM")
-plt.errorbar(scenario_factor, NAM_mse_mean, NAM_mse_std, fmt = 'none', ecolor = 'green', capsize = 3)
+plt.scatter(scenario_factor, NAM_mse_mean, marker='p', s=70, c = CB_color[2], label = "NAM")
+plt.errorbar(scenario_factor, NAM_mse_mean, NAM_mse_std, fmt = 'none', ecolor = CB_color[2], capsize = 3)
 
 
 # Add labels and title
@@ -467,7 +469,7 @@ plt.xticks(scenario_ticks, scenario_labels)
 
 
 # Add a legend
-plt.legend(fontsize="16")
+plt.legend(fontsize="19")
 
 
 ###----------------------------------------------------------------------------
